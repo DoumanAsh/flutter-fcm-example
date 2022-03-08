@@ -1,0 +1,37 @@
+name: flutter-web
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  flutter_version: '2.10.3'
+
+jobs:
+  build_web:
+    name: Build Flutter (Web)
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Cache Flutter dependencies
+      uses: actions/cache@v2
+      with:
+        path: /opt/hostedtoolcache/flutter
+        key: ${{ runner.OS }}-money-admin-flutter-install-cache-${{ env.flutter_version }}
+
+    - uses: subosito/flutter-action@v1
+      with:
+        flutter-version: ${{ env.flutter_version }}
+
+    - name: Compile
+      run: flutter pub get && flutter config --enable-web && flutter build web --profile --base-href "/flutter-fcm-example/" --pwa-strategy none --no-pub
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: build/web
