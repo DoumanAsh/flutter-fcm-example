@@ -14,7 +14,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="/">
+  <base href="/flutter-fcm-example/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -37,7 +37,7 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    var serviceWorkerVersion = '2542262915';
+    var serviceWorkerVersion = '3858756708';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
@@ -45,14 +45,14 @@
       }
       scriptLoaded = true;
       var scriptTag = document.createElement('script');
-      scriptTag.src = document.location.href + 'main.dart.js';
+      scriptTag.src = 'main.dart.js';
       scriptTag.type = 'application/javascript';
       document.body.append(scriptTag);
     }
 
     if ('serviceWorker' in navigator) {
       // flutter fire integration
-      navigator.serviceWorker.register(document.location.href + "firebase-messaging-sw.js");
+      navigator.serviceWorker.register("firebase-messaging-sw.js");
 
       // Service workers are supported. Use them.
       window.addEventListener('load', function () {
