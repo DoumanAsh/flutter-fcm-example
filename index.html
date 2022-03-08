@@ -37,7 +37,7 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    var serviceWorkerVersion = '3097848960';
+    var serviceWorkerVersion = '3758229594';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
@@ -52,6 +52,7 @@
 
     if ('serviceWorker' in navigator) {
       // flutter fire integration
+      // MANABE: this file should be always placed at root.
       navigator.serviceWorker.register("firebase-messaging-sw.js");
 
       // Service workers are supported. Use them.

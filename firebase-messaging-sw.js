@@ -1,6 +1,7 @@
 importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js");
 
+//MANABE: Place your config from firebase (app should be created as web/html)
 firebase.initializeApp({
     apiKey: "AIzaSyBgIiRep7VsTD8A45bQf6gkzxbMt7NnSL4",
     authDomain: "omega-metric-229914.firebaseapp.com",
