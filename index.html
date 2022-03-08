@@ -37,7 +37,7 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    var serviceWorkerVersion = '3044327015';
+    var serviceWorkerVersion = '3544261418';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
@@ -52,7 +52,7 @@
 
     if ('serviceWorker' in navigator) {
       // flutter fire integration
-      navigator.serviceWorker.register("firebase-messaging-sw.js");
+      navigator.serviceWorker.register("https://doumanash.github.io/flutter-fcm-example/firebase-messaging-sw.js");
 
       // Service workers are supported. Use them.
       window.addEventListener('load', function () {
