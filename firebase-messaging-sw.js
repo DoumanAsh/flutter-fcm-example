@@ -15,6 +15,18 @@ firebase.initializeApp({
 const messaging = firebase.messaging();
 
 //Flutter cannot handle background notifications in web yet
-messaging.onBackgroundMessage((m) => {
-    console.log("js worker: onBackgroundMessage", m);
-});
+if ("Notification" in self) {
+    //we only care about it if Notification API is working
+    messaging.onBackgroundMessage((m) => {
+        if (Notification.permission === "granted") {
+            var notification = new Notification(m.notification.title);
+        } else {
+            Notification.requestPermission().then(function (permission) {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    var notification = new Notification(m.notification.title);
+                }
+            });
+        }
+    });
+}
